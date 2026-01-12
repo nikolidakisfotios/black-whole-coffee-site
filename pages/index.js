@@ -1,41 +1,64 @@
+import { useEffect, useState } from 'react';
+
 export default function Home() {
   return (
-    <div className="min-h-screen relative overflow-hidden flex flex-col items-center">
+    <div className="min-h-screen relative overflow-hidden flex flex-col items-center bg-[#0A0A0A]">
       
-      {/* Visual Decor: The Event Horizon Glow */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D97706] rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
+      {/* Event Horizon Background Glow */}
+      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-[#D97706] rounded-full blur-[180px] opacity-10 pointer-events-none"></div>
+      <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-[#D97706] rounded-full blur-[180px] opacity-5 pointer-events-none"></div>
       
-      <nav className="w-full max-w-5xl p-8 flex justify-between items-center z-10">
-        <div className="text-xl tracking-[0.3em] font-bold serif">BLACK WHOLE</div>
-        <div className="hidden md:flex gap-8 text-xs tracking-widest uppercase text-gray-400">
-          <a href="#" className="hover:text-[#D97706] transition-colors">The Philosophy</a>
-          <a href="#" className="hover:text-[#D97706] transition-colors">Rare Varieties</a>
-          <a href="#" className="hover:text-[#D97706] transition-colors">Logistics</a>
+      {/* Refined Header / Logo Area */}
+      <nav className="w-full max-w-5xl p-12 flex justify-center items-center z-10">
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-[#D97706] text-2xl">☕</span>
+          <h1 className="text-3xl tracking-[0.4em] font-bold serif border-y border-[#4B5563] py-2 px-6">
+            BLACK WHOLE
+          </h1>
         </div>
       </nav>
 
+      {/* Main Coming Soon Section */}
       <main className="flex-1 flex flex-col items-center justify-center z-10 px-4 text-center">
-        <h2 className="text-sm uppercase tracking-[0.5em] text-[#D97706] mb-4">Precision Coffee Production</h2>
-        <h1 className="text-6xl md:text-8xl serif mb-8 max-w-4xl leading-tight">
-          Where Time and <br/> <span className="italic">Flavor Collide.</span>
-        </h1>
-
-        <div className="flex flex-col md:flex-row gap-6 mt-8">
-          {/* Main Action Button */}
-          <button className="px-12 py-5 bg-[#D97706] text-black font-bold uppercase tracking-widest hover:bg-[#F59E0B] transition-all duration-300 shadow-[0_0_30px_rgba(217,119,6,0.2)]">
-            Schedule Tomorrow's Batch
-          </button>
+        <div className="space-y-6">
+          <h2 className="text-7xl md:text-9xl serif italic text-[#F3F4F6] tracking-tight">
+            Coming Soon
+          </h2>
           
-          {/* Secondary Button */}
-          <button className="px-12 py-5 border border-gray-600 font-bold uppercase tracking-widest hover:border-[#D97706] hover:text-[#D97706] transition-all duration-300">
-            View Rare Varieties
+          <div className="h-[1px] w-24 bg-[#D97706] mx-auto my-8"></div>
+          
+          <p className="text-2xl md:text-3xl font-light tracking-[0.2em] text-[#D97706] uppercase">
+            March 2026
+          </p>
+        </div>
+
+        {/* Action Button (Hidden or Lead Gen) */}
+        <div className="mt-16">
+          <button className="px-10 py-4 border border-[#4B5563] text-[#4B5563] text-xs uppercase tracking-[0.3em] hover:border-[#D97706] hover:text-[#D97706] transition-all duration-500">
+            Notify My Orbit
           </button>
         </div>
       </main>
 
-      <footer className="p-12 text-gray-600 text-[10px] tracking-[0.4em] uppercase z-10">
-        Calculated Production • {new Date().getFullYear() + 1} Orbits
+      <footer className="p-12 text-gray-700 text-[10px] tracking-[0.5em] uppercase z-10 font-sans">
+        Calculated Production • 2026 Precision Coffee
       </footer>
+
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+        
+        body {
+          margin: 0;
+          background-color: #0A0A0A;
+          color: #F3F4F6;
+          font-family: sans-serif;
+          background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+        }
+
+        .serif {
+          font-family: 'Playfair Display', serif;
+        }
+      `}</style>
     </div>
   )
 }
