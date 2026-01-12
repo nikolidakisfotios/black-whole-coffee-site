@@ -1,71 +1,41 @@
-import { useState, useEffect } from 'react';
-
 export default function Home() {
-  const [qty, setQty] = useState(1);
-  const [selectedDate, setSelectedDate] = useState('');
-  const [minDate, setMinDate] = useState('');
-
-  // EFFECT: Set the minimum date to TOMORROW on load
-  useEffect(() => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    setMinDate(tomorrow.toISOString().split('T')[0]);
-  }, []);
-
-  // LOGIC: Production Offset Math
-  const handoffOffset = 10; // Fixed 10-minute gap
-  const totalLeadTime = parseInt(qty || 0) + handoffOffset;
-
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#F3F4F6] p-8 font-serif">
-      <header className="text-center mb-12">
-        <h1 className="text-5xl tracking-tighter border-b border-[#4B5563] pb-4 inline-block">BLACK WHOLE</h1>
-        <p className="mt-4 text-[#D97706] tracking-widest text-sm uppercase font-sans">Next-Day Production Engine</p>
-      </header>
+    <div className="min-h-screen relative overflow-hidden flex flex-col items-center">
+      
+      {/* Visual Decor: The Event Horizon Glow */}
+      <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#D97706] rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
+      
+      <nav className="w-full max-w-5xl p-8 flex justify-between items-center z-10">
+        <div className="text-xl tracking-[0.3em] font-bold serif">BLACK WHOLE</div>
+        <div className="hidden md:flex gap-8 text-xs tracking-widest uppercase text-gray-400">
+          <a href="#" className="hover:text-[#D97706] transition-colors">The Philosophy</a>
+          <a href="#" className="hover:text-[#D97706] transition-colors">Rare Varieties</a>
+          <a href="#" className="hover:text-[#D97706] transition-colors">Logistics</a>
+        </div>
+      </nav>
 
-      <main className="max-w-xl mx-auto space-y-8">
-        {/* Step 1: Quantity */}
-        <section className="border border-[#4B5563] p-6 rounded-sm bg-black/40">
-          <label className="block text-[#4B5563] uppercase text-xs tracking-widest mb-4">01. Select Volume</label>
-          <div className="flex items-center gap-6">
-            <input 
-              type="number" 
-              min="1"
-              value={qty} 
-              onChange={(e) => setQty(e.target.value)}
-              className="bg-transparent border-b-2 border-[#D97706] text-3xl text-[#D97706] w-24 outline-none pb-1"
-            />
-            <span className="italic text-xl">Fresh Roasts</span>
-          </div>
-        </section>
+      <main className="flex-1 flex flex-col items-center justify-center z-10 px-4 text-center">
+        <h2 className="text-sm uppercase tracking-[0.5em] text-[#D97706] mb-4">Precision Coffee Production</h2>
+        <h1 className="text-6xl md:text-8xl serif mb-8 max-w-4xl leading-tight">
+          Where Time and <br/> <span className="italic">Flavor Collide.</span>
+        </h1>
 
-        {/* Step 2: Date Picker (Tomorrow Only) */}
-        <section className="border border-[#4B5563] p-6 rounded-sm bg-black/40">
-          <label className="block text-[#4B5563] uppercase text-xs tracking-widest mb-4">02. Pick Orbit (Next Day Only)</label>
-          <input 
-            type="date" 
-            min={minDate}
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-            className="w-full bg-transparent border border-[#4B5563] p-3 text-[#D97706] outline-none invert brightness-200"
-          />
-        </section>
-
-        {/* Logic Results */}
-        {selectedDate && (
-          <div className="p-6 bg-[#D97706]/10 border-l-4 border-[#D97706] animate-pulse">
-            <h4 className="text-[#D97706] uppercase text-xs font-bold mb-2">System Calculation:</h4>
-            <p className="italic">
-              Target: {selectedDate} <br />
-              Machine Ignition: <span className="text-white font-bold">{totalLeadTime} minutes prior</span> to arrival.
-            </p>
-          </div>
-        )}
-
-        <button className="w-full py-5 bg-[#D97706] text-black font-bold uppercase tracking-widest hover:scale-105 transition-transform">
-          Finalize Production Block
-        </button>
+        <div className="flex flex-col md:flex-row gap-6 mt-8">
+          {/* Main Action Button */}
+          <button className="px-12 py-5 bg-[#D97706] text-black font-bold uppercase tracking-widest hover:bg-[#F59E0B] transition-all duration-300 shadow-[0_0_30px_rgba(217,119,6,0.2)]">
+            Schedule Tomorrow's Batch
+          </button>
+          
+          {/* Secondary Button */}
+          <button className="px-12 py-5 border border-gray-600 font-bold uppercase tracking-widest hover:border-[#D97706] hover:text-[#D97706] transition-all duration-300">
+            View Rare Varieties
+          </button>
+        </div>
       </main>
+
+      <footer className="p-12 text-gray-600 text-[10px] tracking-[0.4em] uppercase z-10">
+        Calculated Production • {new Date().getFullYear() + 1} Orbits
+      </footer>
     </div>
-  );
+  )
 }
