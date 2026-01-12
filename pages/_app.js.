@@ -2,17 +2,36 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <style jsx global>{`
-        html, body {
-          padding: 0;
-          margin: 0;
-          background-color: #0A0A0A;
-          color: #F3F4F6;
-          font-family: serif;
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+          --event-horizon: #D97706;
+          --deep-space: #0A0A0A;
+          --chalk: #F3F4F6;
         }
+
+        body {
+          margin: 0;
+          padding: 0;
+          background-color: var(--deep-space);
+          color: var(--chalk);
+          font-family: 'Inter', sans-serif;
+          /* This adds a subtle grain texture */
+          background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+        }
+
+        h1, h2, h3, .serif {
+          font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Scrollbar for the dark theme */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A0A0A; }
+        ::-webkit-scrollbar-thumb { background: #4B5563; border-radius: 10px; }
       `}</style>
       <Component {...pageProps} />
     </>
   );
 }
-
 export default MyApp;
