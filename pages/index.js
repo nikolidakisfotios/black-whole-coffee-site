@@ -1,25 +1,28 @@
 export default function Home() {
   return (
     <div className="container">
-      {/* 1. The Amber Glow (The Event Horizon) */}
+      {/* 1. The Event Horizon Amber Glow */}
       <div className="glow"></div>
 
-      {/* 2. Top Branding */}
-      <nav className="nav">
-        <span className="icon">☕</span>
+      {/* 2. Refined Branding (No emoji, just sophisticated lines) */}
+      <header className="header">
+        <div className="logo-symbol">
+           <div className="circle-outer">
+             <div className="circle-inner"></div>
+           </div>
+        </div>
         <h2 className="brand-name">BLACK WHOLE</h2>
-      </nav>
+      </header>
 
       {/* 3. Central Content */}
       <main className="content">
         <h1 className="coming-soon">Coming Soon</h1>
         <div className="divider"></div>
-        <p className="date">March 2026</p>
+        <p className="date">MARCH 2026</p>
       </main>
 
-      {/* 4. Footer */}
       <footer className="footer">
-        Calculated Production • 2026
+        CALCULATED PRODUCTION • 2026
       </footer>
 
       <style jsx>{`
@@ -38,27 +41,55 @@ export default function Home() {
 
         .glow {
           position: absolute;
-          width: 600px;
-          height: 600px;
-          background: radial-gradient(circle, rgba(217,119,6,0.15) 0%, rgba(10,10,10,0) 70%);
+          width: 80vw;
+          height: 80vw;
+          background: radial-gradient(circle, rgba(217,119,6,0.08) 0%, rgba(10,10,10,0) 70%);
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
           pointer-events: none;
         }
 
-        .nav {
+        .header {
           position: absolute;
-          top: 50px;
-          text-align: center;
+          top: 60px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        /* Minimalist Logo Symbol representing a Black Hole */
+        .logo-symbol {
+          width: 40px;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .circle-outer {
+          width: 30px;
+          height: 30px;
+          border: 1px solid #D97706;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .circle-inner {
+          width: 12px;
+          height: 12px;
+          background-color: #D97706;
+          border-radius: 50%;
+          box-shadow: 0 0 10px #D97706;
         }
 
         .brand-name {
-          letter-spacing: 0.5em;
+          letter-spacing: 0.6em;
           font-weight: 300;
-          border-bottom: 1px solid #333;
-          padding-bottom: 10px;
-          font-size: 1.2rem;
+          font-size: 0.9rem;
+          color: #F3F4F6;
+          margin: 0;
         }
 
         .content {
@@ -67,31 +98,33 @@ export default function Home() {
         }
 
         .coming-soon {
-          font-size: clamp(3rem, 10vw, 8rem);
+          font-size: clamp(3.5rem, 12vw, 9rem);
           font-style: italic;
-          margin-bottom: 20px;
-          letter-spacing: -0.02em;
+          margin: 0;
+          font-family: 'Playfair Display', serif;
+          font-weight: 400;
         }
 
         .divider {
-          width: 60px;
+          width: 100px;
           height: 1px;
           background-color: #D97706;
-          margin: 0 auto 20px;
+          margin: 30px auto;
+          opacity: 0.6;
         }
 
         .date {
-          font-size: 1.5rem;
-          letter-spacing: 0.3em;
+          font-size: 1.2rem;
+          letter-spacing: 0.5em;
           color: #D97706;
-          text-transform: uppercase;
+          font-weight: 300;
         }
 
         .footer {
           position: absolute;
-          bottom: 50px;
-          letter-spacing: 0.4em;
-          font-size: 0.7rem;
+          bottom: 40px;
+          letter-spacing: 0.5em;
+          font-size: 0.65rem;
           color: #444;
         }
       `}</style>
